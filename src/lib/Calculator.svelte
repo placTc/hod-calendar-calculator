@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Calendar, LawfulCalendar, UniversalCalendar, VerasCalendar } from "./Calendar"
     import {type Era} from "./Era";
+    import {fade, scale, slide} from 'svelte/transition';
 
   let year = $state(0);
 
@@ -38,47 +39,48 @@
   }
 </script>
 
-<div class="year">
-  <p>Year</p>
-  <input id="convert-from" type="number" onchange={updateYear} bind:value={year} max={selectedEra.duration ? selectedEra.duration : Number.MAX_VALUE} min=0>
-</div>
-
-<div class="from-calendar">
-  From Calendar
-  <select bind:value={selectedFromCalendar} onchange={updateEras}>
-    {#each calendars as value}
-    <option value={value}>{value.toString()}</option>
-    {/each}
-  </select>
-</div>
-
-<div class="eras">
+<div class="card">
+  <div class="year input">
+    <p>Year</p>
+    <input id="convert-from" type="number" onchange={updateYear} bind:value={year} max={selectedEra.duration ? selectedEra.duration : Number.MAX_VALUE} min=0>
+  </div>
+  
+  <div class="from-calendar input">
+    From Calendar
+    <select bind:value={selectedFromCalendar} onchange={updateEras}>
+      {#each calendars as value}
+      <option value={value}>{value.toString()}</option>
+      {/each}
+    </select>
+  </div>
+  
   {#if eras.length > 1}
-  Era
-  <select bind:value={selectedEra}>
-    {#each eras as value}
-    <option value={value}>{value.name}</option>
-    {/each}
-  </select>
+  <div class="eras input" transition:slide={{duration: 200}}>
+    Era
+    <select bind:value={selectedEra}>
+      {#each eras as value}
+      <option value={value}>{value.name}</option>
+      {/each}
+    </select>
+  </div>
   {/if}
-</div>
-
-<div class="to-calendar">
-  To Calendar
-  <select bind:value={selectedCalendar}>
-    {#each calendars as value}
-    <option value={value}>{value.toString()}</option>
-    {/each}
-  </select>
-</div>
-
-<div class="calculate">
-  <button onclick={updateYear}>calculate</button>
-</div>
-
-<div class="display">
-  {#if display}
-    <p>{display}</p>
-  {/if}
-</div>
-
+  
+  <div class="to-calendar input">
+    To Calendar
+    <select bind:value={selectedCalendar}>
+      {#each calendars as value}
+      <option value={value}>{value.toString()}</option>
+      {/each}
+    </select>
+  </div>
+  
+  <div class="calculate input">
+    <button onclick={updateYear}>Calculate</button>
+  </div>
+  
+  <div class="display">
+    {#if display}
+      <p transition:slide={{duration: 200}}>{display}</p>
+    {/if}
+  </div>
+</div>  

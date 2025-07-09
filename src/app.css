@@ -1,13 +1,223 @@
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/quicksand/v36/6xKtdSZaM9iE8KbpRA_hK1QN.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.main {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card>* {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgb(36, 36, 36);
+  max-width: 80%;
+  overflow: hidden;
+  border-radius: 1em;
 }
 
-.card > * {
+body {
+  color: white;
+  font-family: Quicksand;
+  font-size: 150%;
+  background-color: rgb(0, 0, 0);
+}
+
+input, select, button, option {
+ font: inherit;
+ border: solid 0.05em aliceblue;
+ background-color: rgb(228, 228, 228);
+ padding: 0.1em;
+ box-sizing: border-box;
+}
+
+button {
+  padding: 0.2em;
+  border: 0.1em;
+  background-color: rgb(198, 248, 255);
+}
+
+input {
+  width: 80%;
+}
+
+.input>* {
+  margin-top: 0.3em;
+  border-radius: 0.2em;
+}
+
+.display {
+  font-weight: bold;
+  text-align: center;
+  width: 80%;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: white;
+}
+
+.expl {
+  color: white;
+  padding-top: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 120%;
+}
+
+.header {
+  padding: 1em;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 0.5em;
+  flex-direction: row;
 }
