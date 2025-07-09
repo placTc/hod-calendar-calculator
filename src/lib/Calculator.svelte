@@ -31,7 +31,7 @@
   const updateYear = () => {
     let trueYear = selectedFromCalendar.toYear({year: year, era: selectedEra});
     let yearEra = selectedCalendar.fromYear(trueYear);
-    if ((year > selectedEra.duration && selectedEra.duration != 0)|| yearEra.year < 0) {
+    if ((year > selectedEra.duration && selectedEra.duration != 0)|| yearEra.year < yearEra.era.offset) {
       display = "Invalid year";
     } else {
       display = `The year is ${yearEra.year} ${yearEra.era?.name}`;
@@ -42,7 +42,7 @@
 <div class="card">
   <div class="year input">
     <p>Year</p>
-    <input id="convert-from" type="number" onchange={updateYear} bind:value={year} max={selectedEra.duration ? selectedEra.duration : Number.MAX_VALUE} min=0>
+    <input id="convert-from" type="number" onchange={updateYear} bind:value={year} max={selectedEra.duration ? selectedEra.duration : Number.MAX_VALUE} min={selectedEra.offset}>
   </div>
   
   <div class="from-calendar input">
