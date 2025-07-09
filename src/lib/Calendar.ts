@@ -29,6 +29,7 @@ export abstract class Calendar {
                 if (era.before) {
                     year = era.length - year
                 }
+                year = year - (era.offset ? era.offset : 0)
                 break;
             } else {
                 year = year + era.length
