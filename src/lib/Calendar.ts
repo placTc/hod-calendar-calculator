@@ -8,15 +8,15 @@ export abstract class Calendar {
     public fromYear(year: number): YearEra {
         let yearCopy = year;
         for (const era of this.eras) {
-            if (era.length > yearCopy || Number.isNaN(era.length)) {
+            if (era.duration > yearCopy || Number.isNaN(era.duration)) {
                 let value = {era: era, year: yearCopy + era.offset};
                 if (era.before) {
-                    value.year = era.length - value.year;
+                    value.year = era.duration - value.year;
                 }
                 return value;
             }
 
-            yearCopy = yearCopy - era.length;
+            yearCopy = yearCopy - era.duration;
         }
 
         return {era: makeEra(EraEnum.UniversalEra, 0), year: 0}
@@ -27,12 +27,12 @@ export abstract class Calendar {
         for (const era of this.eras) {
             if (era.name == year_era.era.name) {
                 if (era.before) {
-                    year = era.length - year
+                    year = era.duration - year
                 }
                 year = year - (era.offset ? era.offset : 0)
                 break;
             } else {
-                year = year + era.length
+                year = year + era.duration
             }
         }
 

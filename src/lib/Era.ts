@@ -9,11 +9,11 @@ export enum EraEnum {
 
 export interface Era {
     name: EraEnum
-    length: number
+    duration: number
     before: boolean
     offset: number
 }
 
-export function makeEra(name: EraEnum, length: number, before: boolean = false, offset: number = 0): Era {
-    return {name: name, length: length, before: before, offset: offset}
+export function makeEra(name: EraEnum, duration: number, before: boolean = false, offset: number = 0): Era {
+    return {name: name, duration: duration, before: before, offset: offset}
 }
